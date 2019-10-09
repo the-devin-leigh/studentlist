@@ -15,7 +15,8 @@ void del();
 
 int main(){
   bool quit = false;
-
+  vector<Student> students;
+  
   while(quit == false){
     
   }  
@@ -23,8 +24,16 @@ int main(){
   
 }    
 
-void add(){
-
+void add(Student newStudent){
+  cout << "Enter student's first name: ";
+  newStudent.first = cin.get(20);
+  cout << endl;
+  cout << "Enter student's last name: ";
+  newStudent.last = cin.get(20);
+  cout << endl;
+  cout << "Enter student's ID number: "
+  
+  
 }  
 
 void print(){
