@@ -13,33 +13,30 @@ struct Student {
 
 void add(vector<Student> &students);
 void print(vector<Student> students);
-void del(vector<Student> &students, int checkNum);
+void del(vector<Student> &students);
 
 int main(){
   int i = 0;
-  char input;
+  char input[10];
   char delInput[6];
-  int delID;
   bool quit = false;
   vector<Student> students;
   
   while(quit == false){
-    cout << "Would you like to ADD, PRINT, or DELETE? ";
+    cout << "Would you like to ADD, PRINT, or DELETE? " << endl;
+    cout << "Or type QUIT to quit." << endl;
     cin >> input;
     cout << endl;
-    if(tolower(input) == 'a'){
+    if(tolower(input[0]) == 'a'){
       add(students);
       cout << endl;
-    }else if(tolower(input) == 'p'){
+    }else if(tolower(input[0]) == 'p'){
       print(students);
       cout << endl;
-    }else if(tolower(input) == 'd'){
-      cout << "Please enter the ID number of the student you'd like to delete: ";
+    }else if(tolower(input[0]) == 'd'){
+      del(students);
       cout << endl;
-      cin >> delInput;
-      cin.get();
-      del(students, delID);
-    }else if(tolower(input) == 'q'){
+    }else if(tolower(input[0]) == 'q'){
       quit = true;
     }else{
       cout << "Please enter a valid command." << endl;
@@ -89,11 +86,14 @@ void print(vector<Student> students){
   }
 }
 
-void del(vector<Student> &students, int checkNum){
+void del(vector<Student> &students){
   int deletedCount = 0;
+  int delInput;
+  cout << "Please enter the ID number of the student you'd like to delete: ";
+  cin >> delInput;
   //vector<Student>::iterator ptr;
   for(int i = 0; i < students.size(); i++){
-    if(checkNum == students[i].id){
+    if(delInput == students[i].id){
       cout << "Student " << students[i].id << " has been deleted." << endl;
       students.erase(students.begin()+i);
       deletedCount++;
