@@ -38,8 +38,13 @@ int main(){
       add(students);
       cout << endl;
     }else if(tolower(input[0]) == 'p'){ //runs print function
-      print(students);
-      cout << endl;
+      if(students.size() == 0){
+	cout << "No students added" << endl;
+	cout << endl;
+      }else{
+	print(students);
+	cout << endl;
+      }
     }else if(tolower(input[0]) == 'd'){ //runs delete function
       del(students);
       cout << endl;
